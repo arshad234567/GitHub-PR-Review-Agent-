@@ -9,5 +9,10 @@ class Settings(BaseSettings):
     GITHUB_PRIVATE_KEY_PATH: str
 
     model_config = SettingCOnfigDIct(env_file=".env",extra ="ignore")
-    
+
+    @lru_cache
+    def get_settings():
+        return Settings()
+
+    settings = get_settings()
     
