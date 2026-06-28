@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     APP_NAME: str = "Github PR review agent"
