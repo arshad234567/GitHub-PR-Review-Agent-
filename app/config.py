@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     GITHUB_WEBHOOK_SECRET :str
     GITHUB_PRIVATE_KEY_PATH: str
 
-    model_config = SettingCOnfigDIct(env_file=".env",extra ="ignore")
+    model_config = SettingConfigDict(env_file=".env",extra ="ignore")
 
     @lru_cache
     def get_settings():
