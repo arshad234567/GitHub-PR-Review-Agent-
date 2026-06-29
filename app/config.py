@@ -1,3 +1,4 @@
+from functools import lru_cache
 from fastapi import FastAPI
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -8,10 +9,10 @@ class Settings(BaseSettings):
     GITHUB_WEBHOOK_SECRET :str
     GITHUB_PRIVATE_KEY_PATH: str
 
-    model_config = SettingConfigDict(env_file=".env",extra ="ignore")
+    model_config = SettingsConfigDict(env_file=".env",extra ="ignore")
 
     @lru_cache
-    def get_settings():
+    def get_settings(self):
         return Settings()
 
     settings = get_settings()
