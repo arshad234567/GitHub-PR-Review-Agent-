@@ -10,3 +10,28 @@ router = APIRouter(
     "/github",
     status_code=status.HTTP_200_OK,
 )
+
+async def github_webhook(request: Request):
+    """
+    Receives GitHub webhook events.
+
+    Phase 1:
+        • Receive webhook
+        • Print payload
+
+    Later:
+        • Verify webhook signature
+        • Authenticate GitHub App
+        • Fetch PR
+        • Trigger LangGraph workflow
+    """
+
+    payload = await request.json()
+
+    logger.info("GitHub webhook received.")
+
+    logger.info(payload)
+
+    return {
+        "message": "Webhook received successfully."
+    }
