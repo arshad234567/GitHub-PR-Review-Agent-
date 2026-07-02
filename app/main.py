@@ -6,7 +6,7 @@ from app.exceptions import (
     GithubWebhookException,
     github_exception_handler,
 )
-from app.lifespan import lifespan
+from app.life_span import lifespan
 from api.routes import api_router
 
 app = FastAPI(
