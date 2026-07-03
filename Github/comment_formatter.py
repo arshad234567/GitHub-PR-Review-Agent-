@@ -1,6 +1,5 @@
 from typing import List
 
-
 class CommentFormatter:
     """
     Formats review findings into GitHub review comments.
